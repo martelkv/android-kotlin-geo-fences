@@ -47,6 +47,7 @@
             android:textAlignment="center"
             android:textSize="@dimen/hint_text_size"
             android:textStyle="bold"
+            android:textColor="@color/colorText"
             tools:text="Go to some landmark in the city. You can use the emulator or a MockLocationProvider."
             app:layout_constraintBottom_toTopOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
@@ -70,6 +71,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/guideline"
+            android:padding="@dimen/picture_padding"
             tools:src="@drawable/android_map"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

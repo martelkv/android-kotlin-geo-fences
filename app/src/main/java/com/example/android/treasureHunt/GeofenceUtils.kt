@@ -55,31 +55,49 @@ internal object GeofencingConstants {
 
     val LANDMARK_DATA = arrayOf(
         LandmarkDataObject(
+            "ifi_nedover",
+            R.string.ifi_nedover_hint,
+            R.string.ifi_nedover_location, LatLng(59.943787, 10.719306 )),
+
+        LandmarkDataObject(
+            "ifi_venstre",
+            R.string.ifi_venstre_hint,
+            R.string.ifi_venstre_location,
+            LatLng(59.943204, 10.718636)),
+
+        LandmarkDataObject(
+            "ifi_rettfrem",
+            R.string.ifi_venstre_hint,
+            R.string.ifi_venstre_location,
+            LatLng(59.942509, 10.718079)),
+        )
+
+       /*LandmarkDataObject(
             "golden_gate_bridge",
             R.string.golden_gate_bridge_hint,
             R.string.golden_gate_bridge_location,
-            LatLng(37.819927, -122.478256)),
+            LatLng(37.819927, -122.478256)),*/
 
-        LandmarkDataObject(
+        /*LandmarkDataObject(
             "ferry_building",
             R.string.ferry_building_hint,
             R.string.ferry_building_location,
-            LatLng(37.795490, -122.394276)),
+            LatLng(37.795490, -122.394276)),*/
 
-        LandmarkDataObject(
+        /*LandmarkDataObject(
             "pier_39",
             R.string.pier_39_hint,
             R.string.pier_39_location,
-            LatLng(37.808674, -122.409821)),
+            LatLng(37.808674, -122.409821)),*/
 
-        LandmarkDataObject(
+        /*LandmarkDataObject(
            "union_square",
             R.string.union_square_hint,
             R.string.union_square_location,
-            LatLng(37.788151, -122.407570))
-    )
+            LatLng(37.788151, -122.407570))*/
+
 
     val NUM_LANDMARKS = LANDMARK_DATA.size
-    const val GEOFENCE_RADIUS_IN_METERS = 100f
+    const val GEOFENCE_RADIUS_IN_METERS = 5f
     const val EXTRA_GEOFENCE_INDEX = "GEOFENCE_INDEX"
 }

@@ -18,7 +18,7 @@ Geofencing has a lot of applications including:
 Pre-requisites
 --------------
 - The latest version of Android Studio.
-- A minimum of SDK API 29 on your device or emulator. (This should still work on lower API levels but may look differenti.)
+- A minimum of SDK API 29 on your device or emulator. (This should still work on lower API levels but may look different.)
 
 Getting Started
 ---------------

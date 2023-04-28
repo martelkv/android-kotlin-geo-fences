@@ -50,7 +50,7 @@ class GeofenceViewModel(state: SavedStateHandle) : ViewModel() {
     val geofenceImageResourceId = Transformations.map(geofenceIndex) {
         val index = geofenceIndex.value ?: -1
         when {
-            index < GeofencingConstants.NUM_LANDMARKS -> R.drawable.android_map
+            index < GeofencingConstants.NUM_LANDMARKS -> R.drawable.kart
             else -> R.drawable.android_treasure
         }
     }

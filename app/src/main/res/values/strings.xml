@@ -39,12 +39,20 @@
 
     <!-- Geofence Hints -->
     <string name="not_started_hint"></string>
+    <string name="ifi_nedover_hint">På dette strekket vil det gå nedover. Ta det sakte.</string>
+    <string name="ifi_venstre_hint">Nå svinger veien til venstre. Len deg forsiktig mot venstre.</string>
+    <string name="ifi_rettfrem_hint">Her går det slakt rett frem. T-banen kan passere på venstre side.</string>
+
     <string name="golden_gate_bridge_hint">Go to a bridge with a name that does not match the color that it is!</string>
     <string name="ferry_building_hint">Go to a market with an amazing assortment of delicious foods. It is a San Francisco classic!</string>
     <string name="pier_39_hint">Go to a pier popular for tourist attractions, carnival games, fresh fish, and delicious sourdough bread!</string>
     <string name="union_square_hint">Go to a square named after Civil War rallies held there, but now known for its amazing shopping!</string>
 
     <!-- Geofence Locations -->
+    <string name="ifi_nedover_location">utenfor IFI før bakker</string>
+    <string name="ifi_venstre_location">utenfor IFI nederst i bakken</string>
+    <string name="ifi_rettfrem_location">utenfor Forskningsparken mot Blindern</string>
+
     <string name="golden_gate_bridge_location">at the Golden Gate bridge</string>
     <string name="ferry_building_location">in the Ferry Building</string>
     <string name="pier_39_location">at Pier 39</string>

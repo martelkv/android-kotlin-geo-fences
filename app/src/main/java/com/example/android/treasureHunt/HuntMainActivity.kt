@@ -20,6 +20,7 @@ import android.app.PendingIntent
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.Manifest
+import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.content.IntentSender
 import android.net.Uri
@@ -191,6 +192,8 @@ class HuntMainActivity : AppCompatActivity() {
         val locationSettingsResponseTask =
             settingsClient.checkLocationSettings(builder.build())
 
+        /* Vi er mest interessert i om lokasjons-instillinger ikke er "tilfredsstilt"
+        legger vi til en onFailureListener*/
         locationSettingsResponseTask.addOnFailureListener { exception ->
             if (exception is ResolvableApiException && resolve){
                 // Location settings are not satisfied, but this can be fixed
@@ -201,7 +204,7 @@ class HuntMainActivity : AppCompatActivity() {
                     exception.startResolutionForResult(this@HuntMainActivity,
                         REQUEST_TURN_DEVICE_LOCATION_ON)
                 } catch (sendEx: IntentSender.SendIntentException) {
-                    Log.d(TAG, "Error geting location settings resolution: " + sendEx.message)
+                    Log.d(TAG, "Error getting location settings resolution: " + sendEx.message)
                 }
             } else {
                 Snackbar.make(
@@ -276,17 +279,25 @@ class HuntMainActivity : AppCompatActivity() {
      * no more geofences, we remove the geofence and let the viewmodel know that the ending hint
      * is now "active."
      */
+    @SuppressLint("VisibleForTests")
     private fun addGeofenceForClue() {
+        /* sjekker om det er et aktivt geo-fence
+        om det er det vil man ikke legge til enda en - én av gangen */
         if (viewModel.geofenceIsActive()) return
+
+        //finner "currentGeofence" fra viewModel
         val currentGeofenceIndex = viewModel.nextGeofenceIndex()
+        // Fjerner eventuelle eksisterende geofences
         if(currentGeofenceIndex >= GeofencingConstants.NUM_LANDMARKS) {
             removeGeofences()
+            // kaller geofanceActivated på viewModel
             viewModel.geofenceActivated()
             return
         }
+        // hent dataen som tilhører geofence - id, høydegrad og breddegrad
         val currentGeofenceData = GeofencingConstants.LANDMARK_DATA[currentGeofenceIndex]
 
-        // Build the Geofence Object
+        // Bygger Geofence Objektet rundt disse koordinatene
         val geofence = Geofence.Builder()
             // Set the request ID, string to identify the geofence.
             .setRequestId(currentGeofenceData.id)
@@ -335,7 +346,7 @@ class HuntMainActivity : AppCompatActivity() {
                         Toast.makeText(this@HuntMainActivity, R.string.geofences_not_added,
                             Toast.LENGTH_SHORT).show()
                         if ((it.message != null)) {
-                            Log.w(TAG, it.message)
+                            Log.w(TAG, it.message!!)
                         }
                     }
                 }
